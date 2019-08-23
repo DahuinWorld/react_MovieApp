@@ -21,14 +21,16 @@ function App(){
 우리는 우리가 가지고있지않은 데이터를 써줄 수 없다. 
 같은 태그를 여러개 쓴느건 너무 번거롭다
 
-
+~~~js
 {foodILike.map( dish => (
     <Food name={dish.name} />,
     <Image src={dish.image}/>
 ))}
+~~~
 
 여기서 dish는 object이다.따라서 dish는 첫번째로 Kimchi object 그리고 Bibimbap object 그리고 Doncasu object이다.
 
+~~~js
 function Food({name}){
   return(
     <h1>I love {name}</h1> 
@@ -44,8 +46,11 @@ function Image({src}){
     </div>
   )
 }
+~~~
 
 이렇게 따로 써도 되고
+
+~~~js
 function Food({name,picture}){
     return(
         <div>
@@ -54,8 +59,10 @@ function Food({name,picture}){
         </div>
     )
 }
+~~~
 
-## Case 01
+### Case 01
+~~~js
 function App(){
   return (
     <div>
@@ -66,8 +73,11 @@ function App(){
     </div>
   )
 }
+~~~
 
-## Case 02
+### Case 02
+
+~~~js
 function renderFood(dish){
     console.log(dish);
     return (
@@ -82,8 +92,9 @@ function App(){
         </div>
     )
 }
+~~~
 
-yarn add prop-types
+##yarn add prop-types
 타입을 확인할 수 있다!
 ~~~js
 Food.propTypes = {
