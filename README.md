@@ -2,8 +2,8 @@
 
 React JS Fundamentals Course
 
-#props
-##test1
+# props
+## test1
 ~~~js
 function App(){
   return (
@@ -19,7 +19,7 @@ function App(){
 ~~~
 
 우리는 우리가 가지고있지않은 데이터를 써줄 수 없다. 
-같은 태그를 여러개 쓴느건 너무 번거롭다
+같은 태그를 여러개 쓰는 건 너무 번거롭다
 
 ~~~js
 {foodILike.map( dish => (
@@ -94,8 +94,8 @@ function App(){
 }
 ~~~
 
-##yarn add prop-types
-타입을 확인할 수 있다!
+## yarn add prop-types
+#### 타입을 확인할 수 있다!
 ~~~js
 Food.propTypes = {
   name: Proptypes.string.isRequired,
