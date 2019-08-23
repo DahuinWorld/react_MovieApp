@@ -82,3 +82,13 @@ function App(){
         </div>
     )
 }
+
+yarn add prop-types
+타입을 확인할 수 있다!
+~~~js
+Food.propTypes = {
+  name: Proptypes.string.isRequired,
+  src: Proptypes.string.isRequired,
+  rating: Proptypes.number.isRequired,
+}
+~~~

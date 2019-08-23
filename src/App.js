@@ -1,37 +1,42 @@
 import React, { Component } from 'react';
+import Proptypes from "prop-types";
 
-function Food({name}){
+function Food({name, src, rating}){
   return(
-    <h1>I love {name}</h1> 
+    <div>
+      <h1>I love {name}</h1> 
+      <h2>This is the photo</h2>
+      <img src={src}/>
+      <h2>Rate : {rating}/5</h2>
+    </div>
   )
   //props.fav = {fav}
 }
 
-function Image({src}){
-  return(
-    <div>
-      <h2>This is the photo</h2>
-      <img src={src}/>
-    </div>
-  )
+Food.propTypes = {
+  name: Proptypes.string.isRequired,
+  src: Proptypes.string.isRequired,
+  rating: Proptypes.number.isRequired,
 }
-
 
 const foodILike = [
   {
     id:1,
     name:"Kimchi",
-    image:"01.png"
+    image:"01.png",
+    rating: 5
   },
   {
     id:2,
     name:"Bibimbap",
-    image:"02.png"
+    image:"02.png",
+    rating: 4.2
   },
   {
     id:3,
     name:"Doncasu",
-    image:"03.png"
+    image:"03.png",
+    rating: 4.8
   },
 
 ]
@@ -40,8 +45,7 @@ function App(){
   return (
     <div>
       {foodILike.map( dish => (
-      <Food name={dish.name} />,
-      <Image src={dish.image}/>
+      <Food name={dish.name} src={dish.image} rating={dish.rating}/>
       ))}
     </div>
   )
