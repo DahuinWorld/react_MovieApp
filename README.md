@@ -229,5 +229,45 @@ componentWillUnmount를 호출할 수있다
 
 ### setState를 사용할 때 state안에 default값들을 선언할 필요는 없다.
 
+## 4. Making the Movie App
+
+### Fetching Movies frmo API
+YTS에서 만든 API를 사용할거다.
+
+~~~js
+import React from 'react';
+import axios from 'axios';
+
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies: []
+  };
+  getMovies = async () => {
+    const movies = await axios.get("http://yts-proxy.now.sh/list_movies.json")
+  };
+  componentDidMount() {
+    this.getMovies(); 
+  };
+
+  render(){
+    const { isLoading } = this.state;
+
+    return(
+      <div>
+        {isLoading ? "Loading..." : "We are ready"}
+      </div>
+    );
+  }
+}
+
+export default App;
+~~~
+isLoading: true --> render --> componentDidMount (--> getMovies실행)
+
+getMovies는 axios.get을 사용한다. 하지만 axios.get은 완료되기까지 시간이 조금 필요하기때문에 await을 넣음!
+await은 async을 꼭 써야합니다!
+async await을 하는 것은 우리가 기본적으로 javaScript에게 getMovies function에게 조금 시간이 필요하고 우리는 그걸 기다려야만 하다는 것을 말한다.
+
 
 
