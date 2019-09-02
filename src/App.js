@@ -1,55 +1,29 @@
-import React, { Component } from 'react';
-import Proptypes from "prop-types";
+import React from "react";
 
-function Food({name, src, rating}){
-  return(
-    <div>
-      <h1>I love {name}</h1> 
-      <h2>This is the photo</h2>
-      <img src={src}/>
-      <h2>Rate : {rating}/5</h2>
-    </div>
-  )
-  //props.fav = {fav}
+// import PropTypes from "prop-types";
+
+class App extends React.Component{
+  state = {
+    count: 0
+  };
+  
+  add = () => {
+    this.setState(current => ({count : current.count+1}))
+  };
+
+  minus = () => {
+    this.setState(current => ({count : current.count-1}))
+  };
+
+  render(){
+    return (
+      <div>
+        <h1>The number is:{this.state.count}</h1>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
+      </div>
+    )
+  }
 }
-
-Food.propTypes = {
-  name: Proptypes.string.isRequired,
-  src: Proptypes.string.isRequired,
-  rating: Proptypes.number.isRequired,
-}
-
-const foodILike = [
-  {
-    id:1,
-    name:"Kimchi",
-    image:"01.png",
-    rating: 5
-  },
-  {
-    id:2,
-    name:"Bibimbap",
-    image:"02.png",
-    rating: 4.2
-  },
-  {
-    id:3,
-    name:"Doncasu",
-    image:"03.png",
-    rating: 4.8
-  },
-
-]
-
-function App(){
-  return (
-    <div>
-      {foodILike.map( dish => (
-      <Food name={dish.name} src={dish.image} rating={dish.rating}/>
-      ))}
-    </div>
-  )
-}
-
 
 export default App;
