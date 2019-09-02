@@ -227,4 +227,7 @@ component가 생성될때, render전에 호출되는 몇가지 function이 있�
 componentWillUnmount를 호출할 수있다
 
 
+### setState를 사용할 때 state안에 default값들을 선언할 필요는 없다.
+
+
 
